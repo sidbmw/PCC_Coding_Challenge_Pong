@@ -15,7 +15,7 @@ player_2_Starting_Score = 0
 
 num_Of_Rounds = 0
 while num_Of_Rounds < 1:
-    num_Of_Rounds = int(sg.PopupGetText('How many rounds would you like to play?'))
+    num_Of_Rounds = int(sg.PopupGetText('Points to win __?'))
 
 
 class Ball:
@@ -120,7 +120,7 @@ class PongBat():
 
 def pong():
     layout = [[sg.Canvas(size=(700, 400), background_color='black', key='canvas')],
-              [sg.T(''), sg.Button('Exit')]]
+              [sg.T(''), sg.Button('Exit'), sg.T('Speed'), sg.Slider((0, 20), default_value=10, orientation='h', enable_events=True, key='_SPEED_')]]
 
     window = sg.Window('Pong', return_keyboard_events=True).Layout(layout).Finalize()
 
@@ -130,33 +130,31 @@ def pong():
     bat_2 = PongBat(canvas, 'blue', 670)
 
     ball_1 = Ball(canvas, bat_1, bat_2, 'white')
+    sleep_time = 10
 
     while True:
         ball_1.draw()
         bat_1.draw()
         bat_2.draw()
 
-        event, values = window.Read(timeout=0)
+        event, values = window.Read(timeout=sleep_time)
 
         if event is None or event == 'Exit':
             exit(5)
-
-        if event is not None:
-            if event.startswith('Up') and bat_2.curr_pos > 0:
-                bat_2.up(2)
-            if event.startswith('Down') and bat_2.curr_pos < 290:
-                bat_2.down(2)
-
-        if event == 'w' and bat_1.curr_pos > 0:
+        elif event.startswith('Up') and bat_2.curr_pos > 0:
+            bat_2.up(2)
+        elif event.startswith('Down') and bat_2.curr_pos < 290:
+            bat_2.down(2)
+        elif event == 'w' and bat_1.curr_pos > 0:
             bat_1.up(2)
-        if event == 's' and bat_1.curr_pos < 290:
+        elif event == 's' and bat_1.curr_pos < 290:
             bat_1.down(2)
+        elif event == '_SPEED_':
+            sleep_time = int(values['_SPEED_'])
 
         if ball_1.win_loss_check():
             sg.Popup('Game Over', ball_1.win_loss_check() + ' won!!')
             break
-
-        canvas.after(10)
 
 
 if __name__ == '__main__':
