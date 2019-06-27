@@ -11,8 +11,7 @@ Once the prerequisite's have been installed, the "Main.Py" file can be run to pl
 
 *Note: 
 - Only tested on Windows 10 (build 18362.175).
-- Due to the features of PySimpleGUI, the program can be easily adapted (just by changing the import statement) to run on other platforms such as:  tkinter, Qt, WxPython, Remi (in browser)
-       
+
        
        
 ### Written in Python with PySimpleGUI using PyCharm Professional 2019.1.3
