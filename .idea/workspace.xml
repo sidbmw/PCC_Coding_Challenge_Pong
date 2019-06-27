@@ -18,8 +18,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="425">
-                  <caret line="74" column="38" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
+                <state relative-caret-position="348">
+                  <caret line="143" column="12" selection-start-line="143" selection-start-column="12" selection-end-line="143" selection-end-column="12" />
                   <folding>
                     <element signature="e#22#32#0" expanded="true" />
                   </folding>
@@ -34,7 +34,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Test.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2037">
+                <state relative-caret-position="1011">
                   <caret line="154" column="28" selection-start-line="154" selection-start-column="28" selection-end-line="154" selection-end-column="28" />
                   <folding>
                     <element signature="e#22#32#0" expanded="true" />
@@ -62,11 +62,18 @@
       <find>player1Score</find>
       <find>playerScore1</find>
       <find>playerScore</find>
+      <find>pos[1]</find>
+      <find>pongbat_1</find>
+      <find>Up</find>
+      <find>20</find>
+      <find>bat_1</find>
+      <find>pongBat_1</find>
     </findStrings>
     <replaceStrings>
       <replace>pongbat_2</replace>
       <replace>player_1_Score</replace>
       <replace>player_2_Score</replace>
+      <replace>pongBat_1</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -91,20 +98,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="PCC_Coding_Challenge_Pong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PCC_Coding_Challenge_Pong" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -220,12 +214,13 @@
       <workItem from="1561557092549" duration="2454000" />
       <workItem from="1561577060149" duration="6997000" />
       <workItem from="1561613947440" duration="1424000" />
-      <workItem from="1561601165141" duration="6719000" />
+      <workItem from="1561601165141" duration="7079000" />
+      <workItem from="1561644007636" duration="5267000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19450000" />
+    <option name="totallyTimeSpent" value="25077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -236,7 +231,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32997987" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28776187" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.33076075" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -244,7 +239,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32988507" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3275862" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.28776187" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32988507" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32988507" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -259,13 +254,13 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PCC_Coding_Challenge_Pong$Test.coverage" NAME="Test Coverage Results" MODIFIED="1561615525162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PCC_Coding_Challenge_Pong$Python_3_7.coverage" NAME="Python 3.7 Coverage Results" MODIFIED="1561616772803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PCC_Coding_Challenge_Pong$Python_3_7.coverage" NAME="Python 3.7 Coverage Results" MODIFIED="1561649235353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file:///usr/local/lib/python3.7/site-packages/PySimpleGUIQt/__init__.py" />
     <entry file="file://$PROJECT_DIR$/Test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2037">
+        <state relative-caret-position="1011">
           <caret line="154" column="28" selection-start-line="154" selection-start-column="28" selection-end-line="154" selection-end-column="28" />
           <folding>
             <element signature="e#22#32#0" expanded="true" />
@@ -275,8 +270,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="74" column="38" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
+        <state relative-caret-position="348">
+          <caret line="143" column="12" selection-start-line="143" selection-start-column="12" selection-end-line="143" selection-end-column="12" />
           <folding>
             <element signature="e#22#32#0" expanded="true" />
           </folding>

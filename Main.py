@@ -79,10 +79,13 @@ class Ball:
             self.x = -4
 
 
-class pongbat_1():
-    def __init__(self, canvas, colour):
+class PongBat():
+    def __init__(self, canvas, colour, x, width=20, height=110):
+        # x = 30, 670
         self.canvas = canvas
-        self.id = self.canvas.create_rectangle(40, 200, 25, 310, fill=colour)
+        self.id = self.canvas.create_rectangle(
+            x - width / 2, 200, x + width / 2, 200 + height,
+            fill=colour)
         self.canvas_height = self.canvas.winfo_height()
         self.canvas_width = self.canvas.winfo_width()
         self.y = 0
@@ -93,35 +96,17 @@ class pongbat_1():
     def down(self, evt):
         self.y = 5
 
-    def draw(self):
-        self.canvas.move(self.id, 0, self.y)
+    @property
+    def curr_pos(self):
         pos = self.canvas.coords(self.id)
-        if pos[1] <= 0:
-            self.y = 0
-        if pos[3] >= 400:
-            self.y = 0
-
-
-class pongbat_2():
-    def __init__(self, canvas, colour):
-        self.canvas = canvas
-        self.id = self.canvas.create_rectangle(680, 200, 660, 310, fill=colour)
-        self.canvas_height = self.canvas.winfo_height()
-        self.canvas_width = self.canvas.winfo_width()
-        self.y = 0
-
-    def up(self, evt):
-        self.y = -5
-
-    def down(self, evt):
-        self.y = 5
+        return pos[1]
 
     def draw(self):
         self.canvas.move(self.id, 0, self.y)
-        pos = self.canvas.coords(self.id)
-        if pos[1] <= 0:
+
+        if self.curr_pos <= 0:
             self.y = 0
-        if pos[3] >= 400:
+        if self.curr_pos >= 290:
             self.y = 0
 
 
@@ -133,8 +118,8 @@ def pong():
 
     canvas = window.FindElement('canvas').TKCanvas
 
-    bat_1 = pongbat_1(canvas, 'red')
-    bat_2 = pongbat_2(canvas, 'blue')
+    bat_1 = PongBat(canvas, 'red', 30)
+    bat_2 = PongBat(canvas, 'blue', 670)
 
     ball_1 = Ball(canvas, bat_1, bat_2, 'white')
 
@@ -149,10 +134,15 @@ def pong():
             exit(5)
 
         if event is not None:
-            if event.startswith('Up'):
-                bat_2.up(2)
-            if event.startswith('Down'):
-                bat_2.down(2)
+
+            if 0 < bat_2.curr_pos < 290:
+                # print(bat_2.curr_pos)
+                if event.startswith('Up'):
+                    bat_2.up(2)
+                if event.startswith('Down'):
+                    bat_2.down(2)
+            
+
             if event == 'w':
                 bat_1.up(2)
             if event == 's':
