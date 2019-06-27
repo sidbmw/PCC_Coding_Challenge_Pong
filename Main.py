@@ -122,7 +122,7 @@ def pong():
     layout = [[sg.Canvas(size=(700, 400), background_color='black', key='canvas')],
               [sg.T(''), sg.Button('Exit')]]
 
-    window = sg.Window('Classic Pong', return_keyboard_events=True).Layout(layout).Finalize()
+    window = sg.Window('Pong', return_keyboard_events=True).Layout(layout).Finalize()
 
     canvas = window.FindElement('canvas').TKCanvas
 
