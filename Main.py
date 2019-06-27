@@ -1,4 +1,8 @@
-#!/usr/bin/env python
+# Author: Siddharth Natamai
+# Version: 1.00.0
+
+
+# !/usr/bin/env python
 import sys
 import PySimpleGUI as sg
 
@@ -8,6 +12,10 @@ from sys import exit as exit
 
 player_1_Starting_Score = 0
 player_2_Starting_Score = 0
+
+num_Of_Rounds = 0
+while num_Of_Rounds < 1:
+    num_Of_Rounds = int(sg.PopupGetText('How many rounds would you like to play?'))
 
 
 class Ball:
@@ -28,10 +36,10 @@ class Ball:
 
     def win_loss_check(self):
         winner = None
-        if self.player_1_Score >= 10:
-            winner = 'Player Left Wins'
-        if self.player_2_Score >= 10:
+        if self.player_1_Score >= num_Of_Rounds:
             winner = 'Player Right Wins'
+        if self.player_2_Score >= num_Of_Rounds:
+            winner = 'Player Left Wins'
         return winner
 
     def updatep(self, val):
@@ -45,14 +53,14 @@ class Ball:
     def hit_bat(self, pos):
         bat_pos = self.canvas.coords(self.bat_1.id)
         if pos[2] >= bat_pos[0] and pos[0] <= bat_pos[2]:
-            if pos[3] >= bat_pos[1] and pos[3] <= bat_pos[3]:
+            if bat_pos[1] <= pos[3] <= bat_pos[3]:
                 return True
             return False
 
     def hit_bat2(self, pos):
         bat_pos = self.canvas.coords(self.bat_2.id)
         if pos[2] >= bat_pos[0] and pos[0] <= bat_pos[2]:
-            if pos[3] >= bat_pos[1] and pos[3] <= bat_pos[3]:
+            if bat_pos[1] <= pos[3] <= bat_pos[3]:
                 return True
             return False
 
@@ -134,7 +142,6 @@ def pong():
             exit(5)
 
         if event is not None:
-
             if event.startswith('Up') and bat_2.curr_pos > 0:
                 bat_2.up(2)
             if event.startswith('Down') and bat_2.curr_pos < 290:
@@ -144,9 +151,6 @@ def pong():
             bat_1.up(2)
         if event == 's' and bat_1.curr_pos < 290:
             bat_1.down(2)
-
-        # if event != '__TIMEOUT__':
-        #     print(event)
 
         if ball_1.win_loss_check():
             sg.Popup('Game Over', ball_1.win_loss_check() + ' won!!')
