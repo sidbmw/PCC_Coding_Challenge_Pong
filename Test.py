@@ -168,7 +168,7 @@ def pong():
             elif event == 's':
                 bat1.down(1)
 
-            # print(event)
+            print(event)
 
         if ball1.checkwin():
             sg.Popup('Game Over', ball1.checkwin() + ' won!!')

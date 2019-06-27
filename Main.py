@@ -10,7 +10,6 @@ player_1_Starting_Score = 0
 player_2_Starting_Score = 0
 
 
-
 class Ball:
     def __init__(self, canvas, bat_1, bat_2, colour):
         self.canvas = canvas
@@ -34,7 +33,6 @@ class Ball:
         if self.player_2_Score >= 10:
             winner = 'Player Right Wins'
         return winner
-
 
     def updatep(self, val):
         self.canvas.delete(self.draw_P1)
@@ -66,15 +64,15 @@ class Ball:
         if pos[3] >= self.canvas_height:
             self.y = -4
         if pos[0] <= 0:
-            self.player1Score += 1
+            self.player_1_Score += 1
             self.canvas.move(self.id, 327, 220)
             self.x = 4
-            self.updatep1(self.player1Score)
+            self.updatep1(self.player_1_Score)
         if pos[2] >= self.canvas_width:
-            self.playerScore += 1
+            self.player_1_Score += 1
             self.canvas.move(self.id, -327, -220)
             self.x = -4
-            self.updatep(self.playerScore)
+            self.updatep(self.player_1_Score)
         if self.hit_bat(pos):
             self.x = 4
         if self.hit_bat2(pos):
@@ -127,12 +125,9 @@ class pongbat_2():
             self.y = 0
 
 
-
-
 def pong():
-    layout = [[sg.Canvas(size=(1024, 768), background_color='black', key='canvas')],
-              [sg.T(''), sg.Button('Quit')]]
-
+    layout = [[sg.Canvas(size=(700, 400), background_color='black', key='canvas')],
+              [sg.T(''), sg.Button('Exit')]]
 
     window = sg.Window('Classic Pong', return_keyboard_events=True).Layout(layout).Finalize()
 
@@ -141,7 +136,7 @@ def pong():
     bat_1 = pongbat_1(canvas, 'red')
     bat_2 = pongbat_2(canvas, 'blue')
 
-    ball_1 = Ball(canvas, ball_1, bat_2, 'white')
+    ball_1 = Ball(canvas, bat_1, bat_2, 'white')
 
     while True:
         ball_1.draw()
@@ -150,10 +145,27 @@ def pong():
 
         event, values = window.Read(timeout=0)
 
+        if event is None or event == 'Exit':
+            exit(5)
 
+        if event is not None:
+            if event.startswith('Up'):
+                bat_2.up(2)
+            if event.startswith('Down'):
+                bat_2.down(2)
+            if event == 'w':
+                bat_1.up(2)
+            if event == 's':
+                bat_1.down(2)
 
+            # if event != '__TIMEOUT__':
+            #     print(event)
 
+        if ball_1.win_loss_check():
+            sg.Popup('Game Over', ball_1.win_loss_check() + ' won!!')
+            break
 
+        canvas.after(10)
 
 
 if __name__ == '__main__':
