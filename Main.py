@@ -69,10 +69,10 @@ class Ball:
             self.x = 4
             self.updatep1(self.player_1_Score)
         if pos[2] >= self.canvas_width:
-            self.player_1_Score += 1
+            self.player_2_Score += 1
             self.canvas.move(self.id, -327, -220)
             self.x = -4
-            self.updatep(self.player_1_Score)
+            self.updatep(self.player_2_Score)
         if self.hit_bat(pos):
             self.x = 4
         if self.hit_bat2(pos):
