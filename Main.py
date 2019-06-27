@@ -3,11 +3,10 @@
 
 
 # !/usr/bin/env python
-import sys
 import PySimpleGUI as sg
 
 import random
-import time
+
 from sys import exit as exit
 
 player_1_Starting_Score = 0
