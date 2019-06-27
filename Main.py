@@ -135,21 +135,18 @@ def pong():
 
         if event is not None:
 
-            if 0 < bat_2.curr_pos < 290:
-                # print(bat_2.curr_pos)
-                if event.startswith('Up'):
-                    bat_2.up(2)
-                if event.startswith('Down'):
-                    bat_2.down(2)
-            
+            if event.startswith('Up') and bat_2.curr_pos > 0:
+                bat_2.up(2)
+            if event.startswith('Down') and bat_2.curr_pos < 290:
+                bat_2.down(2)
 
-            if event == 'w':
-                bat_1.up(2)
-            if event == 's':
-                bat_1.down(2)
+        if event == 'w' and bat_1.curr_pos > 0:
+            bat_1.up(2)
+        if event == 's' and bat_1.curr_pos < 290:
+            bat_1.down(2)
 
-            # if event != '__TIMEOUT__':
-            #     print(event)
+        # if event != '__TIMEOUT__':
+        #     print(event)
 
         if ball_1.win_loss_check():
             sg.Popup('Game Over', ball_1.win_loss_check() + ' won!!')
