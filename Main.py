@@ -4,17 +4,22 @@
 
 # !/usr/bin/env python
 import PySimpleGUI as sg
-
 import random
 
 from sys import exit as exit
 
+# Starting score for the 2 players
 player_1_Starting_Score = 0
 player_2_Starting_Score = 0
 
+# Number of points to win the game
 num_Of_Rounds = 0
-while num_Of_Rounds < 1:
-    num_Of_Rounds = int(sg.PopupGetText('Points to win __?'))
+try:
+    while num_Of_Rounds < 1:
+        num_Of_Rounds = int(sg.PopupGetText('Points to win __?'))
+except ValueError:
+    sg.Popup("Only integer input allowed. Run again")
+    exit(9)
 
 
 class Ball:
