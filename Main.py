@@ -141,7 +141,17 @@ def pong():
     bat_1 = pongbat_1(canvas, 'red')
     bat_2 = pongbat_2(canvas, 'blue')
 
-    ball_1 = ball(canvas, ball_1, bat_2, 'white')
+    ball_1 = Ball(canvas, ball_1, bat_2, 'white')
+
+    while True:
+        ball_1.draw()
+        bat_1.draw()
+        bat_2.draw()
+
+        event, values = window.Read(timeout=0)
+
+
+
 
 
 
